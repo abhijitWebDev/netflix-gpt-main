@@ -8,6 +8,7 @@
 - Login form 
 - Sign up form
 - useRef Hook
+- fixed the authentication condition and proper redirection in my header component.
 
 # Features which we are going to build
 -Browse page(after authentication)
