@@ -1,5 +1,7 @@
 
 import useNowPlayingMovies from '../hooks/useNowPlayingMovies' // importing the useNowPlayingMovies hook
+import MainContainer from './MainContainer';
+import SecondaryContainer from './SecondaryContainer';
 
 
 
@@ -7,7 +9,7 @@ import useNowPlayingMovies from '../hooks/useNowPlayingMovies' // importing the 
 const Browse = () => {
   useNowPlayingMovies();
   return (
-    <div>
+    <>
       {/*
       Maincontainer
        -Video play
@@ -15,10 +17,13 @@ const Browse = () => {
       Another main container
        - Movie list * n
        - Card * n
+       
      
         */}
+        <MainContainer />
+        <SecondaryContainer />
       
-    </div>
+    </>
   )
 }
 
