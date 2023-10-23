@@ -9,6 +9,9 @@
 - Sign up form
 - useRef Hook
 - fixed the authentication condition and proper redirection in my header component.
+- Register to tmdb.com create account, register application and get api key
+- make a get request to get the data
+- put the data in redux store
 
 # Features which we are going to build
 -Browse page(after authentication)

@@ -1,11 +1,23 @@
-import React from 'react'
+
+import useNowPlayingMovies from '../hooks/useNowPlayingMovies' // importing the useNowPlayingMovies hook
+
 
 
 
 const Browse = () => {
+  useNowPlayingMovies();
   return (
     <div>
-      <h1>Browse</h1>
+      {/*
+      Maincontainer
+       -Video play
+       - video background
+      Another main container
+       - Movie list * n
+       - Card * n
+     
+        */}
+      
     </div>
   )
 }
