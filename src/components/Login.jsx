@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import Header from './Header';
 import { checkValidData } from '../utils/validate';
 import authService from '../appwrite/auth';
-import {login, logout} from '../store/authSlice';
+import {login} from '../store/authSlice';
 import { useDispatch } from 'react-redux';
 
 

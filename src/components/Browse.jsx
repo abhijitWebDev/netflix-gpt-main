@@ -4,7 +4,9 @@ import React from 'react'
 
 const Browse = () => {
   return (
-    <div>Browse</div>
+    <div>
+      <h1>Browse</h1>
+    </div>
   )
 }
 
