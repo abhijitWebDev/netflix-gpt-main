@@ -11,7 +11,17 @@
 - fixed the authentication condition and proper redirection in my header component.
 - Register to tmdb.com create account, register application and get api key
 - make a get request to get the data
-- put the data in redux store
+- put the data in redux store ie the movie slice
+- Configured tmdb api
+- get the data from tmdb api
+- Created custom hook  playing movies
+- planning for main container and secondary container
+- fetched data for trailer video
+- populating the trailer to redux store
+- created video title and video background component
+- embeded the youtube video and make it autoplay and mute in the background
+- Added tailwind to make main container look awesome.
+
 
 # Features which we are going to build
 -Browse page(after authentication)
