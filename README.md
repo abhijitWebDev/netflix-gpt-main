@@ -21,6 +21,12 @@
 - created video title and video background component
 - embeded the youtube video and make it autoplay and mute in the background
 - Added tailwind to make main container look awesome.
+- Build secondary component
+- Built secondary component
+- Built cards for different generes of movies
+- created slices for the generes and dispatched the data to the perticular slice
+- created movie list and movie card component and fetched the data and rendered it according to the genre
+- fixed the css issue for now.
 
 
 # Features which we are going to build
