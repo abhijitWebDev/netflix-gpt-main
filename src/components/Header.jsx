@@ -1,9 +1,24 @@
 import { Link, useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux';
 import { LogoutBtn, LOGO  } from './index.js';
+import { useDispatch } from 'react-redux';
+import {toggleGptSearchView} from '../store/gptSlice';
+import { supportedLanguages } from './constant.js';
+import { changeLanguage } from '../store/configSlice';
 const Header = () => {
   const authStatus = useSelector((state) => state.auth.status)
+  const showGpt = useSelector((state) => state.gpt.showGptSearch)
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const handleLanguageChange = (e) => {
+    dispatch(changeLanguage(e.target.value))
+  }
+
+  const handleGptClick = () => {
+    // toggle gpt search view
+    dispatch(toggleGptSearchView());
+  }
 
   const navItems = [
     {
@@ -41,9 +56,23 @@ const Header = () => {
             ) : null
             )}
             {authStatus && (
+              <>
+              {showGpt && <select className="p-2 bg-slate-700 text-white" onChange={handleLanguageChange}>
+                {supportedLanguages.map((lang) => (
+                  <option key={lang.Identifier} value={lang.Identifier}>{lang.Name}</option>
+                
+
+                ))}
+              </select>}
+              <li>
+              <button onClick={handleGptClick} className="inline-bock px-6 py-2 duration-200 hover:bg-blue-100 rounded-full">Gpt search</button>
+              </li>
+               
               <li>
                 <LogoutBtn />
               </li>
+              </>
+             
             )}
           </ul>
         </nav>

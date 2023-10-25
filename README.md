@@ -27,6 +27,11 @@
 - created slices for the generes and dispatched the data to the perticular slice
 - created movie list and movie card component and fetched the data and rendered it according to the genre
 - fixed the css issue for now.
+- Using uderlaying gpt apis for search.
+- Built a gpt search page
+- Built a gpt search bar
+- Bonus built a multilingual feature
+
 
 
 # Features which we are going to build
