@@ -31,7 +31,10 @@
 - Built a gpt search page
 - Built a gpt search bar
 - Bonus built a multilingual feature
-
+- Integrate gpt apis(Pending)
+- get open ai key(Pending)
+- We have done the search using gpt api and showed in the component of GPT movie suggesstions.
+- we have contionally called the APi to minimize the network calls coparing it with the redux state.
 
 
 # Features which we are going to build

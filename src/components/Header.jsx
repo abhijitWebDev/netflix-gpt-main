@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux';
 import {toggleGptSearchView} from '../store/gptSlice';
 import { supportedLanguages } from './constant.js';
 import { changeLanguage } from '../store/configSlice';
+import { addGptMovieResult } from '../store/gptSlice';
 const Header = () => {
   const authStatus = useSelector((state) => state.auth.status)
   const showGpt = useSelector((state) => state.gpt.showGptSearch)
@@ -18,6 +19,7 @@ const Header = () => {
   const handleGptClick = () => {
     // toggle gpt search view
     dispatch(toggleGptSearchView());
+    dispatch(addGptMovieResult({movieNames:null, movieResults: null}))
   }
 
   const navItems = [
@@ -65,7 +67,8 @@ const Header = () => {
                 ))}
               </select>}
               <li>
-              <button onClick={handleGptClick} className="inline-bock px-6 py-2 duration-200 hover:bg-blue-100 rounded-full">Gpt search</button>
+              <button onClick={handleGptClick} className="inline-bock px-6 py-2 duration-200 hover:bg-blue-100 rounded-full">
+                {showGpt ? "Homepage" : "Gpt Search" }</button>
               </li>
                
               <li>
