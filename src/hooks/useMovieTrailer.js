@@ -3,29 +3,30 @@ import { useEffect } from 'react';
 import { API_OPTIONS } from '../components/constant';
 import { addTrailerVideo } from '../store/movieSlice';
 import { useDispatch, useSelector } from 'react-redux';
+import { useQuery } from 'react-query';
+
+const fetchMovieTrailer = async (movieId) => {
+  const response = await fetch(`https://api.themoviedb.org/3/movie/${movieId}/videos?language=en-US`, API_OPTIONS);
+  if (!response.ok) {
+    throw new Error('Network response was not ok');
+  }
+  const data = await response.json();
+  const filteredData = data.results.filter((video) => video.type === 'Trailer');
+  return filteredData.length ? filteredData[0] : data.results[0];
+};
 
 const useMovieTrailer = (movieId) => {
-    const dispatch = useDispatch();
+  const dispatch = useDispatch();
+  const nowPlayingMovies = useSelector(state => state.movies.trailerVideo);
 
-    // fetching the movie trailer from redux
-    const nowPlayingMovies = useSelector(state => state.movies.trailerVideo);
+  const { data: trailer, isError, isLoading } = useQuery(['movieTrailer', movieId], () => fetchMovieTrailer(movieId), {
+    enabled: !nowPlayingMovies,
+    onSuccess: (data) => {
+      dispatch(addTrailerVideo(data));
+    },
+  });
 
-    // making the api call
-    const getMovieVideo = async () => {
-        
-    
-        const data = await fetch('https://api.themoviedb.org/3/movie/' + movieId + '/videos?language=en-US', API_OPTIONS)
-        const response = await data.json();
-    
-        const filteredData = response.results.filter((video) => video.type === 'Trailer');
-        
-        const trailer = filteredData.length ? filteredData[0] : response.results[0];
-        dispatch(addTrailerVideo(trailer))
-      }
-    
-      useEffect(() => {
-        !nowPlayingMovies && getMovieVideo();
-      },[]);
-}
+  return { trailer, isError, isLoading };
+};
 
-export default useMovieTrailer
+export default useMovieTrailer;

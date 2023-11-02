@@ -5,6 +5,8 @@ const initialState = {
 
 };
 
+
+//use signal for state management
 const configSlice = createSlice({
     name: "config",
     initialState,
